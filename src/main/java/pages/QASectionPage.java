@@ -17,36 +17,21 @@ public class QASectionPage {
         this.config = config;
     }
 
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div[2]/div/div[1]/h1")
-    private WebElement header;
-
     @FindBy(css = ".submit")
     private WebElement buttonSubmitOnSurveyForm;
 
-    //Активная форма
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div[2]/div/div[2]/div")
-    private WebElement activeQAForm;
+    @FindBy(css = ".survey")
+    private WebElement surveyForm;
 
-    //Неотображающаяся форма
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div[2]/div/div[2]/div[contains(@style,'transition')]")
-    private WebElement noActiveQAForm;
-
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div[2]/div/div[2]/div/form/div[contains(@class,'radio')]")
+    //@FindBy(xpath = "/html/body/div[1]/main/div/div/div[2]/div/div[2]/div/form/div[contains(@class,'radio')]")
+    @FindBy(css = ".radio")
     private List<WebElement> answersFields;
 
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div[2]/div/div[1]/p[3]/button")
+    @FindBy(css = ".wg-btn.wg-btn--white.wg-btn--hollow.button.js-button")
     private WebElement buttonResendEmail;
 
-    @FindBy(xpath = "/html/body/div[1]/main/div/div/div[2]/div/div[1]/p[3]/button[contains(@style,'transition')]")
-    private WebElement buttonResendEmailNoActive;
-
-    public String getURL(){
-        config.waitLoadElement(header);
-        return this.config.getDriver().getCurrentUrl();
-    }
-
     public String getPageTitle(){
-        config.waitLoadElement(header);
+        config.wait.until(ExpectedConditions.urlToBe("https://www.wrike.com/resend/"));
         return this.config.getDriver().getTitle();
     }
 

@@ -32,7 +32,8 @@ public class WrikeHomePage {
     @FindBy(css = ".modal-form-trial__submit")
     private WebElement submitButtonOnFormAction;
 
-    @FindBy(xpath = "/html/body/div[1]/div/div[3]/div/div[1]/div")
+    //@FindBy(xpath = "/html/body/div[1]/div/div[3]/div/div[1]/div")
+    @FindBy(css = ".wg-footer__group.wg-footer__group--social")
     private WebElement panelFollowUs;
 
     private WebElement buttonTwitter;
