@@ -46,6 +46,10 @@ public class WrikeHomePage {
         this.config.navigateTo("http://www.wrike.com/");
     }
 
+    public String getURL(){
+        return this.config.getDriver().getCurrentUrl();
+    }
+
 
     // Methods for creating a new account
     public void clickOnGetStartedForFree() {
